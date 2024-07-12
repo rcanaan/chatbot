@@ -1,0 +1,9 @@
+.header {
+  overflow: hidden;
+  background-color: #7abfda;
+  /* padding: 20px 10px; */
+}
+
+.header h1 {
+  text-align: center;
+}

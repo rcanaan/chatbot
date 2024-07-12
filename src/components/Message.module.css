@@ -1,0 +1,49 @@
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+  position: relative;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: #d1e7dd;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #f8d7da;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message small {
+  display: block;
+  text-align: right;
+  color: #888;
+}
+
+.message .actions {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message .actions button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+.message .actions button:hover {
+  background-color: #0056b3;
+}
