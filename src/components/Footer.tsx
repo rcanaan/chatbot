@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Footer.module.css";
 import { useMessages } from "../Context/MessageContext";
 
 interface FooterProps {
   onClickSideBar: () => void;
   isSideBarOpen: boolean;
+  setUsername: (name: string) => void;
 }
 
-export default function Footer({ onClickSideBar, isSideBarOpen }: FooterProps) {
+export default function Footer({
+  onClickSideBar,
+  isSideBarOpen,
+  setUsername,
+}: FooterProps) {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { addMessage } = useMessages();
+  const { addMessage, messages, nameSet, setNameSet } = useMessages();
+  const initialMessageSet = useRef(false);
+  useEffect(() => {
+    if (!initialMessageSet.current && messages.length === 0 && !nameSet) {
+      addMessage("What is your name?", "received");
+      // setNameSet(true);
+      initialMessageSet.current = true;
+    }
+  }, [addMessage, messages.length, nameSet, setNameSet]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -19,7 +32,14 @@ export default function Footer({ onClickSideBar, isSideBarOpen }: FooterProps) {
   const handleSendClick = () => {
     setIsLoading(true);
     setTimeout(() => {
-      addMessage(inputValue, "sent");
+      if (!nameSet) {
+        setUsername(inputValue);
+        addMessage(inputValue, "sent");
+        addMessage(`Hello ${inputValue}!`, "received");
+        setNameSet(true);
+      } else {
+        addMessage(inputValue, "sent");
+      }
       setIsLoading(false);
       setInputValue("");
     }, 800);

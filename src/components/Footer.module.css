@@ -1,20 +1,25 @@
 .footer {
-  background-color: rgb(192, 192, 194);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(81, 157, 219);
   position: fixed;
   height: 5rem;
   left: 0;
   bottom: 0;
   width: 100%;
-  /* display: flex;
-  flex-direction: row; */
+
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .footer button {
   margin-right: 10px;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   background-color: #007bff;
   color: white;
   cursor: pointer;
+  margin-left: 10px;
   border-radius: 5px;
 }
 
@@ -29,10 +34,11 @@
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  width: 30%; /* Increase width for better spacing */
 }
 
 .footer .sendButton {
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   background-color: #28a745;
   color: white;
