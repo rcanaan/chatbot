@@ -1,14 +1,11 @@
 // src/components/Message.tsx
 import React from "react";
 import styles from "./Message.module.css";
+import { MessageDetails } from "../Context/MessageContext";
 
-interface MessageProps {
-  id: number;
-  text: string;
-  timestamp: number;
-  type: "sent" | "received";
-  onResend: (id: number) => void;
-  onDelete: (id: number) => void;
+interface MessageProps extends MessageDetails {
+  onResend: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 const Message: React.FC<MessageProps> = ({
@@ -20,11 +17,7 @@ const Message: React.FC<MessageProps> = ({
   onDelete,
 }) => {
   return (
-    <li
-      className={`${styles.message} ${
-        type === "sent" ? styles.sent : styles.received
-      }`}
-    >
+    <li className={`${styles.message} ${styles[type]}`}>
       <p>{text}</p>
       <small>{new Date(timestamp).toLocaleTimeString()}</small>
       <div className={styles.actions}>
