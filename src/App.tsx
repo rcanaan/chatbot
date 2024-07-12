@@ -1,13 +1,13 @@
 import "./App.css";
 import Layout from "./components/Layuot";
-import HomePage from "./components/HomePage";
 import { MessageProvider } from "./Context/MessageContext";
+import MessageList from "./components/MessageList";
 
 function App() {
   return (
     <MessageProvider>
       <Layout>
-        <HomePage />
+        <MessageList />
       </Layout>
     </MessageProvider>
   );
