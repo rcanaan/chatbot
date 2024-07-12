@@ -27,22 +27,3 @@ const SideBar: React.FC = () => {
 };
 
 export default SideBar;
-
-// export default SideBar;
-// src/components/SideBar.tsx
-// import React from "react";
-// import MessageList from "./MessageList";
-// import styles from "./SideBar.module.css";
-
-// interface SideBarProps {}
-
-// const SideBar: React.FC<SideBarProps> = () => {
-//   return (
-//     <div className={styles.sidebar}>
-//       <h1>SideBar</h1>
-//       <MessageList />
-//     </div>
-//   );
-// };
-
-// export default SideBar;
