@@ -1,12 +1,14 @@
 // src/components/Layout.tsx
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import React, { ReactNode, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import styles from "./Layout.module.css";
 import SideBar from "./SideBar";
 
-export default function Layout() {
+interface LayoutProps {
+  children: ReactNode;
+}
+export default function Layout({ children }: LayoutProps) {
   const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(true);
   const onClickSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
@@ -17,9 +19,7 @@ export default function Layout() {
       <Header />
       <div className={styles.content}>
         {isSideBarOpen && <SideBar />}
-        <main className={styles.main}>
-          <Outlet />
-        </main>
+        <main className={styles.main}>{children}</main>
       </div>
       <Footer onClickSideBar={onClickSideBar} isSideBarOpen={isSideBarOpen} />
     </div>

@@ -1,10 +1,8 @@
 import MessageList from "./MessageList";
 import styles from "./HomePage.module.css";
-interface HomePageProps {
-  username?: string;
-}
 
-export default function HomePage({ username }: HomePageProps) {
+export default function HomePage() {
+  // remove home page only messagelist at App
   return (
     <div className={styles.homePage}>
       <MessageList />
