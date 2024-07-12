@@ -7,8 +7,8 @@ type MessageType = "sent" | "received";
 export interface MessageDetails {
   id: string;
   text: string;
-  timestamp: number;
-  // timestamp: Date;
+  // timestamp: number;
+  timestamp: Date;
   type: MessageType;
 }
 
@@ -17,12 +17,16 @@ interface MessageContextType {
   addMessage: (text: string, type: MessageType) => void;
   resendMessage: (id: string) => void;
   deleteMessage: (id: string) => void;
+  nameSet: boolean;
+  setNameSet: (value: boolean) => void;
 }
 const emptyState: MessageContextType = {
   messages: [],
   addMessage: () => {},
   resendMessage: () => {},
   deleteMessage: () => {},
+  nameSet: false,
+  setNameSet: () => {},
 };
 const MessageContext = createContext<MessageContextType>(emptyState);
 
@@ -30,14 +34,13 @@ export const MessageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [messages, setMessages] = useState<MessageDetails[]>([]);
+  const [nameSet, setNameSet] = useState<boolean>(false);
 
   const addMessage = (text: string, type: MessageType) => {
-    const newMessage = { id: uuidv4(), text, timestamp: Date.now(), type };
-    setMessages((prevMessages) =>
-      [...prevMessages, newMessage].sort((a, b) => b.timestamp - a.timestamp)
-    );
-  };
+    const newMessage = { id: uuidv4(), text, timestamp: new Date(), type };
 
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  };
   const resendMessage = (id: string) => {
     const message = messages.find((msg) => msg.id === id);
     if (message) {
@@ -51,7 +54,14 @@ export const MessageProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <MessageContext.Provider
-      value={{ messages, addMessage, resendMessage, deleteMessage }}
+      value={{
+        messages,
+        addMessage,
+        resendMessage,
+        deleteMessage,
+        nameSet,
+        setNameSet,
+      }}
     >
       {children}
     </MessageContext.Provider>

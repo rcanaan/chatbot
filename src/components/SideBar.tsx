@@ -2,24 +2,28 @@
 import React from "react";
 import styles from "./SideBar.module.css";
 import { useMessages } from "../Context/MessageContext";
+import Message from "./Message";
 
 const SideBar: React.FC = () => {
   const { messages, resendMessage, deleteMessage } = useMessages();
-
-  const sentMessages = messages.filter((message) => message.type === "sent");
+  const sentMessages = messages
+    .filter((message) => message.type === "sent")
+    .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 
   return (
     <div className={styles.sidebar}>
       <ul>
         {sentMessages.map((message) => (
-          <li key={message.id}>
-            <p>{message.text}</p>
-            <small>{new Date(message.timestamp).toLocaleTimeString()}</small>
-            <div className={styles.actions}>
-              <button onClick={() => resendMessage(message.id)}>Resend</button>
-              <button onClick={() => deleteMessage(message.id)}>Delete</button>
-            </div>
-          </li>
+          <Message
+            key={message.id}
+            id={message.id}
+            text={message.text}
+            timestamp={message.timestamp}
+            type={message.type}
+            onResend={resendMessage}
+            onDelete={deleteMessage}
+            showActions={true}
+          />
         ))}
       </ul>
     </div>

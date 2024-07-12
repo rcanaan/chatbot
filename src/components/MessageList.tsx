@@ -9,7 +9,10 @@ const MessageList: React.FC = () => {
 
   return (
     <div className={styles.messageList}>
-      <h2>Sent Messages</h2>
+      <div className={styles.messageList__titles}>
+        <h2 className={styles.sent__messages}>Sent Messages</h2>
+        <h2 className={styles.received__messages}>Received Messages</h2>
+      </div>
       <ul>
         {messages.map((message) => (
           <Message
@@ -20,6 +23,7 @@ const MessageList: React.FC = () => {
             type={message.type}
             onResend={resendMessage}
             onDelete={deleteMessage}
+            showActions={false}
           />
         ))}
       </ul>

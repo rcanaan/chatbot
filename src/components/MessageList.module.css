@@ -1,19 +1,40 @@
 .messageList {
-  position: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   overflow-y: auto;
   padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 65px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.messageList h2 {
-  text-align: right;
+
+.messageList__titles {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between; /* Distribute titles to the ends */
+  width: 100%;
+  margin-bottom: 10px; /* Add some space below the titles */
 }
+
+.sent__messages {
+  flex: 1;
+}
+
+.received__messages {
+  text-align: right;
+  flex: 1;
+}
+
 .messageList ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+@media only screen and (min-width: 767px) {
+  .messageList__titles {
+    font-size: 1rem;
+  }
 }

@@ -1,15 +1,20 @@
 .sidebar {
-  width: 130px;
+  width: 30%;
   height: 100%;
-  background-color: #85acbe;
+  background-color: rgb(150, 212, 233);
   padding: 10px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-width: 13px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  padding-left: 10px;
 }
 
 .sidebar li {
@@ -22,6 +27,7 @@
 
 .sidebar li p {
   margin: 0;
+  word-wrap: break-word;
 }
 
 .sidebar li small {
@@ -48,4 +54,9 @@
 
 .sidebar .actions button:hover {
   background-color: #0056b3;
+}
+@media only screen and (min-width: 767px) {
+  .sidebar {
+    width: 20%;
+  }
 }
