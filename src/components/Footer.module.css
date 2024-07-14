@@ -2,25 +2,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(81, 157, 219);
+  background-color: rgb(192, 192, 194);
   position: fixed;
   height: 5rem;
   left: 0;
   bottom: 0;
   width: 100%;
-
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .footer button {
-  margin-right: 10px;
   padding: 10px 20px;
   border: none;
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  margin-left: 10px;
   border-radius: 5px;
+  width: 80px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
 .footer button:disabled {
@@ -29,12 +30,13 @@
 }
 
 .footer .input {
-  flex: 1;
+  flex-grow: 1;
   padding: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 30%; /* Increase width for better spacing */
+  min-width: 150px;
+  max-width: 200px;
 }
 
 .footer .sendButton {
@@ -52,8 +54,8 @@
 }
 
 .loader {
-  border: 12px solid #f3f3f3; /* Light grey */
-  border-top: 12px solid #3498db; /* Blue */
+  border: 12px solid #f3f3f3;
+  border-top: 12px solid #3498db;
   border-radius: 50%;
   width: 12px;
   height: 12px;
@@ -66,5 +68,11 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media only screen and (min-width: 767px) {
+  .footer .input {
+    min-width: 30rem;
+    max-width: 75rem;
   }
 }
