@@ -1,4 +1,3 @@
-// src/components/MessageList.tsx
 import React from "react";
 import Message from "./Message";
 import { useMessages } from "../Context/MessageContext";

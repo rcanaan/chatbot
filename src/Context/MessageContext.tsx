@@ -1,13 +1,11 @@
-// src/context/MessageContext.tsx
 import React, { createContext, useState, ReactNode, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-type MessageType = "sent" | "received";
+export type MessageType = "sent" | "received";
 
 export interface MessageDetails {
   id: string;
   text: string;
-  // timestamp: number;
   timestamp: Date;
   type: MessageType;
 }
@@ -44,7 +42,10 @@ export const MessageProvider: React.FC<{ children: ReactNode }> = ({
   const resendMessage = (id: string) => {
     const message = messages.find((msg) => msg.id === id);
     if (message) {
-      addMessage(message.text, message.type);
+      addMessage(message.text, "sent");
+      setTimeout(() => {
+        addMessage(message.text, "received");
+      }, 1000);
     }
   };
 

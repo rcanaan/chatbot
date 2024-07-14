@@ -20,13 +20,18 @@ export default function Footer({
   useEffect(() => {
     if (!initialMessageSet.current && messages.length === 0 && !nameSet) {
       addMessage("What is your name?", "received");
-      // setNameSet(true);
       initialMessageSet.current = true;
     }
   }, [addMessage, messages.length, nameSet, setNameSet]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && !isLoading && inputValue.trim() !== "") {
+      handleSendClick();
+    }
   };
 
   const handleSendClick = () => {
@@ -39,6 +44,10 @@ export default function Footer({
         setNameSet(true);
       } else {
         addMessage(inputValue, "sent");
+        // ChatBot Echo message after a delay
+        setTimeout(() => {
+          addMessage(inputValue, "received");
+        }, 800);
       }
       setIsLoading(false);
       setInputValue("");
@@ -56,6 +65,7 @@ export default function Footer({
         placeholder="Enter text here"
         value={inputValue}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         className={styles.input}
       />
       <button

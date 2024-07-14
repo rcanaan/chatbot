@@ -1,4 +1,3 @@
-// src/components/SideBar.tsx
 import React from "react";
 import styles from "./SideBar.module.css";
 import { useMessages } from "../Context/MessageContext";

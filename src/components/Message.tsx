@@ -1,4 +1,3 @@
-// src/components/Message.tsx
 import React from "react";
 import styles from "./Message.module.css";
 import { MessageDetails } from "../Context/MessageContext";
