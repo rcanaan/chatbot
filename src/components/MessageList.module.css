@@ -10,11 +10,12 @@
 }
 
 .messageList__titles {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  color: rgb(75, 69, 66);
   display: flex;
-  justify-content: space-between; /* Distribute titles to the ends */
+  justify-content: space-between;
   width: 100%;
-  margin-bottom: 10px; /* Add some space below the titles */
+  margin-bottom: 10px;
 }
 
 .sent__messages {

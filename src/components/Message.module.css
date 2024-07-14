@@ -51,6 +51,5 @@
 @media only screen and (min-width: 1025px) {
   .message {
     font-size: 1rem;
-    /* max-width: 80%; */
   }
 }
