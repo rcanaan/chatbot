@@ -19,7 +19,8 @@ Users are prompted to enter their name upon entering the chat.
 Messages can be sent, received, resent, and deleted. Messages are categorized as sent or received.
 ### Sidebar: 
 A sidebar displays a list of all sent messages, allowing users to resend or delete messages.
-### esponsive Design: The application is fully responsive, ensuring a seamless experience on both desktop and mobile devices
+### Responsive Design: 
+The application is fully responsive, ensuring a seamless experience on both desktop and mobile devices
 
 ## Technologies Used
 ## Frontend:
