@@ -12,6 +12,7 @@ const SideBar: React.FC = () => {
   return (
     <div className={styles.sidebar}>
       <ul>
+        <h3>My Recent Messages</h3>
         {sentMessages.map((message) => (
           <Message
             key={`${message.id}${message.type}`}
