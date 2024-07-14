@@ -37,13 +37,9 @@ io.on("connection", (socket) => {
   // Handle chat message event
   socket.on("chat-message", (msg: string) => {
     console.log("Received message:", msg);
-    io.emit("chat-message", ` ${socket.id.substring(0, 5)}: ${msg}`); // Broadcast message to all connected clients
+    io.emit("chat-message", msg); // Broadcast message to all connected clients
   });
 
-  socket.on("delete-message", (id: string) => {
-    console.log("Message deleted:", id);
-    io.emit("delete-message", id);
-  });
   // Handle disconnection
   socket.on("disconnect", () => {
     console.log("Client disconnected");
