@@ -9,6 +9,9 @@ It showcases a robust frontend developed using React and TypeScript, coupled wit
 Check out the live version of our Chatbot
 [Live Demo](https://chatbot-henna-pi.vercel.app/) 
 
+## Backend - 
+[on socket-io-integration branch](https://github.com/rcanaan/chatbot/tree/socket-io-integration)
+
 ## Features
 
 ### Real-time Communication: 
