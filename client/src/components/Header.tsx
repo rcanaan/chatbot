@@ -5,7 +5,7 @@ interface HeaderProps {
   username?: string;
 }
 
-export default function Header({ username = "Rinat" }: HeaderProps) {
+export default function Header({ username = "Chatty" }: HeaderProps) {
   return (
     <header className={styles.header}>
       <h1>Chatbot {username}</h1>
