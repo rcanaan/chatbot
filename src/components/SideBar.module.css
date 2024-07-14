@@ -1,14 +1,14 @@
 .sidebar {
-  width: 30%;
+  width: 33%;
   height: 100%;
   background-color: rgb(150, 212, 233);
   padding: 10px;
-  border-width: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 
 .sidebar ul {
