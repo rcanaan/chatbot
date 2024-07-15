@@ -19,6 +19,12 @@
   overflow-y: auto;
 }
 
+.sidebar h3 {
+  display: flex;
+  justify-content: center;
+  color: rgb(75, 69, 66);
+  display: flex;
+}
 .sidebar li {
   margin-bottom: 0.625rem;
   padding: 0.625rem;
