@@ -14,14 +14,14 @@
 .sidebar ul {
   list-style: none;
   padding: 0;
-  padding-left: 10px;
-  margin-bottom: 100px;
+  padding-left: 0.625rem;
+  margin-bottom: 0.625rem;
   overflow-y: auto;
 }
 
 .sidebar li {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -39,14 +39,14 @@
 }
 
 .sidebar .actions {
-  margin-top: 5px;
+  margin-top: 0.3rem;
   display: flex;
   justify-content: space-between;
 }
 
 .sidebar .actions button {
-  padding: 5px 10px;
-  margin-right: 2px;
+  padding: 0.3rem 0.625rem;
+  margin-right: 0.125rem;
   border: none;
   background-color: #007bff;
   color: white;
